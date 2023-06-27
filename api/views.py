@@ -213,9 +213,6 @@ class UpdatePrestatairePhoneNumberView(APIView):
 class ReservationView(APIView):
 
         serializer_class = ReservationSerializer
-          
-
-
         def get(self, request, user_id, prest_id):
 
             if not user_id or not prest_id:
@@ -287,7 +284,9 @@ class ReservationGetByPrestataireView(APIView):
                 'client': {
                     'id': str(reservation.client.id),
                     'nom_client': str(reservation.client.nom_client),
-                    'prenom_client': str(reservation.client.prenom_client)
+                    'prenom_client': str(reservation.client.prenom_client),
+                    'photo_client': str(reservation.client.photo_client)
+
                 },
             }
             reservations_list.append(reservation_data)
